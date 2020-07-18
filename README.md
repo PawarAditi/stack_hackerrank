@@ -10,18 +10,33 @@ Input Format
 The first line of input contains an integer, . The next  lines each contain an above mentioned query. (It is guaranteed that each query is valid.)
 
 For each type  query, print the maximum element in the stack on a new line.
+
 Sample Input
+
 10
+
 1 97
+
 2
+
 1 20
+
 2
+
 1 26
+
 1 20
+
 2
+
 3
+
 1 91
+
 3
+
 Sample Output
+
 26
+
 91
