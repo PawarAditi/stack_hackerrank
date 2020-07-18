@@ -1,0 +1,54 @@
+#include <cmath>
+#include <cstdio>
+#include <stack>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    size_t n;
+    std::cin >> n;
+    std::stack<int> st;
+    std::stack<size_t> occurenceStack;
+
+    int choice;
+    for (size_t querry = 0; querry < n; ++querry) {
+        int element;
+        std::cin >> choice;
+        switch(choice) {
+        case 1:
+            std::cin >> element;
+            if (st.empty()) { //if stack is empty
+                st.push(element);
+                occurenceStack.push(1);
+            } else {
+                if (element > st.top()) {  //inserting new element by comparing top element
+                    st.push(element);
+                    occurenceStack.push(1);
+                } else {
+                    occurenceStack.top()++;
+                }
+            }
+            break;
+        case 2:
+            if (!st.empty()) {   
+                if (occurenceStack.top() > 1) {
+                    occurenceStack.top()--;   // deleting element from top
+                } else {
+                    st.pop();
+                    occurenceStack.pop();
+                }
+            }
+            break;
+        case 3:
+            std::cout << st.top() << "\n";  // displaying max element
+            break;
+        default:
+            break;
+        }
+    } 
+    return 0;
+}
