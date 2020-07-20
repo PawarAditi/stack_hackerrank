@@ -1,0 +1,34 @@
+int twoStacks(int x, vector<int> a, vector<int> b) {
+    /*
+     * Write your code here.
+     */
+        int n = a.size();
+        int m = b.size();
+        
+        int sum=0,count=0,i=0,j=0;        
+        //cout<<"Logic";
+        //cout<<"ith value"<<i;
+        while(i<n && sum+a[i]<=x){    //considering only first stack and calculating count
+            sum+=a[i];
+            i++;
+        }
+        count=i;        
+      // cout<<"ith 2 value"<<i<<endl;
+        while(j<m && i>=0){          //now adding one element of second stack at a time and subtracting the top element of first stack and calculating the count   
+            sum+=b[j];
+            //cout<<"sum b:"<<sum<<endl;
+            j++;
+            while(sum>x && i>0){
+                //cout<<"i:"<<i;
+                i--;
+                sum-=a[i];
+                //cout<<"sum a:"<<sum<<endl;
+            }
+            if(sum<=x && i+j>count)
+                count=i+j;
+              //  cout<<"if count :"<<count;
+        }
+        return count; 
+    
+
+}
